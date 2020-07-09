@@ -21,12 +21,12 @@
 		</div>
 
 		<div class="container" style="margin-top:30px">
-			<form action="index.php" method="post">
+			<form action="baseConverter.php" method="post">
 				
 				<label for="from">From (1 to 20):</label>
-				<input type="range" class="custom-range" id="from" name="from" min="1" max="20"><br>
+				<input type="range" class="custom-range" id="from" name="from" min="1" max="20" value="10"><br>
 				<label for="to">To (1 to 20):</label>
-				<input type="range" class="custom-range" id="to" name="to" min="0" max="20"><br>
+				<input type="range" class="custom-range" id="to" name="to" min="1" max="20" value="10"><br>
 
 				<label for="input">Input:</label><br>
 				<input type="text" class="form-control" id="input" name="input"><br>
@@ -38,7 +38,7 @@
 			<?php
 
 				$base_input = $_POST["from"];
-				$base_out = $_POST["to"];
+				$base_output = $_POST["to"];
 				$input = $_POST["input"];
 				$input = strtoupper($input);
 
@@ -125,7 +125,7 @@
 				// 	return $out;
 				// }
 
-				function convertBase($in = 0, $base_out) {
+				function convertBase($in = 0, $base_output) {
 					if ($in != 0) {
 						$check = 0;
 						$i = -1;
@@ -158,8 +158,8 @@
 
 			?>
 			<p>
-				Input: <?php echo $input; ?><br>
-				Decimal: <?php echo $output; ?>
+				Input (Base: <?php echo $base_input; ?>): <?php echo $input; ?><br>
+				Decimal (Base: <?php echo $base_output; ?>): <?php echo $output; ?>
 			</p>
 
 		</div>
